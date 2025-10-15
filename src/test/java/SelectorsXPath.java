@@ -53,6 +53,50 @@ import java.util.Random;
             driver.close();  //close window
             //driver.quit(); //close  browser
 
+        }
+
+        @Test
+        public void iLcarroTest() {
+            driver.manage().window().maximize();
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.get("https://ilcarro.web.app/search");
+
+            WebElement btnSearch = driver.findElement(
+                    By.xpath("//a[@href='/search']"));
+            SelectorsCss.pause(3);
+            btnSearch.click();
+
+            WebElement btnSignUp = driver.findElement(
+                    By.xpath("//a[text()='Sign up']"));
+            SelectorsCss.pause(3);
+            btnSignUp.click();
+            WebElement inputFirstName = driver.findElement(
+                    By.xpath("//input[@formcontrolname='firstName']"));
+            inputFirstName.sendKeys("Vishenka");
+            WebElement inputLastName = driver.findElement(
+                    By.xpath("//input[@formcontrolname='lastName']"));
+            inputLastName.sendKeys("SSSStlmkh");
+            WebElement inputEmailIlCarro = driver.findElement(
+                    By.xpath("//input[@formcontrolname='email']"));
+            inputEmailIlCarro.sendKeys("cherry@gmail.com");
+            WebElement inputPasswordIlCarro = driver.findElement(
+                    By.xpath("//input[@formcontrolname='password']"));
+            inputPasswordIlCarro.sendKeys("Ch12345$");
+            WebElement inputCheckBox = driver.findElement(
+                    By.xpath("//input[@formcontrolname='termsOfUse']"));
+            WebElement btnYalla = driver.findElement(
+                    By.xpath("//*[text()='Y’alla!']"));
+            btnYalla.click();
+
+
+            WebElement btnLogIn = driver.findElement(
+                    By.xpath("//a[text()='Log in']"));
+            SelectorsCss.pause(3);
+            btnLogIn.click();
+
+            driver.close();
 
         }
+
 }
