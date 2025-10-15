@@ -36,8 +36,61 @@ public class SelectorsCss {
 
         driver.quit();
 
+    }
+
+    @Test
+    public void iLcarroTest() {
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://ilcarro.web.app/search");
+
+        WebElement btnSearch = driver.findElement(
+                By.cssSelector("a[href='/search']"));
+        btnSearch.click();
+        pause(2);
+        System.out.println(btnSearch.getText());
+
+        WebElement btnLetCarWork = driver.findElement(
+                By.cssSelector("*[href='/let-car-work']"));
+        btnLetCarWork.click();
+        pause(2);
+        System.out.println(btnLetCarWork.getText());
+
+        WebElement btnTermOfUse = driver.findElement(
+                By.cssSelector("a[id='2']"));
+        btnTermOfUse.click();
+        pause(2);
+        System.out.println(btnTermOfUse.getText());
+
+        WebElement btnSignUpIlCarro = driver.findElement(
+                By.cssSelector("a[ng-reflect-router-link='registration']"));
+        btnSignUpIlCarro.click();
+        pause(2);
+        System.out.println(btnSignUpIlCarro.getText());
+
+        WebElement btnLoginIlCarro = driver.findElement(
+                By.cssSelector("div[class='header']  a:last-child"));
+        btnLoginIlCarro.click();
+        pause(2);
+        System.out.println(btnLoginIlCarro.getText());
+
+        WebElement inputEmailIlCarro = driver.findElement(
+                By.cssSelector("input[type='email']"));
+        inputEmailIlCarro.sendKeys("cherry@gmail.com");
+        WebElement inputPasswordIlCarro = driver.findElement(
+                By.cssSelector("input[formcontrolname='password']"));
+        inputPasswordIlCarro.sendKeys("Ch12345$");
+        WebElement btnLoginFormIlCarro = driver.findElement(
+                By.cssSelector("button[type='submit']"));
+        btnLoginFormIlCarro.click();
+        pause(5);
+
+        driver.quit();
 
     }
+
+
     static void pause(int time){
         try {
             Thread.sleep(time *1000L);
